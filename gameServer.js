@@ -19,18 +19,12 @@ if (cluster.isMaster) {
     
         await page.goto(url, { waitUntil: 'domcontentloaded' })
         // await page.waitForNavigation()
-
-        // Fork child processes
-        // const child = fork('./game.js', { data: wsEndpoint});
-        // child.send({ message: 'page data', data: wsEndpoint})
         
         nodemon.on('restart', () => {
             console.log('Restarting child process...');
             child.kill(); // Kill the current child process
             const newChild = fork('./game.js'); // Fork a new child process
             newChild.send({ message: 'page data', data: wsEndpoint})
-            //set up additional IPC here if needed'
-            // nodemon({ script: './game.js' });
 
         });
 
@@ -51,7 +45,4 @@ if (cluster.isMaster) {
         }
     });
 
-} else {
-    // code will run in the child process
-    // require('./game.js');
 }
