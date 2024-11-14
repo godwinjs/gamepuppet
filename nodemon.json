@@ -1,0 +1,5 @@
+{
+"watch": ["game.js"], 
+"ignore": ["gameServer.js"],
+"exec": "node game.js"
+}

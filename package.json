@@ -1,0 +1,21 @@
+{
+  "name": "game",
+  "version": "0.1.0",
+  "private": true,
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ]
+  },
+  "scripts": {
+    "game": "node gameServer.js && nodemon"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.7",
+    "puppeteer": "^23.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15"
+  }
+}
